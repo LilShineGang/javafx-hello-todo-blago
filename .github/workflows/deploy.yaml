@@ -23,11 +23,11 @@ jobs:
 
     - name: Descargar 
       run: wget https://download2.gluonhq.com/openjfx/21.0.10/openjfx-21.0.10_linux-x64_bin-sdk.zip
-    - name: Descomprimir SDK
+    - name: Descompresión SDK
       run: unzip openjfx-21.0.10_linux-x64_bin-sdk.zip -d javafx-sdk
-    - name: Compilar código fuente
+    - name: Compilar código
       run: javac --module-path javafx-sdk/javafx-sdk-21.0.10/lib --add-modules javafx.controls -d build/ src/dam/optativa/HelloWorldFx.java
-    - name: Crear archivo JAR
+    - name: Crear JAR
       run: jar --create --file=build/HelloWorldFx.jar --manifest=manifest/MANIFEST.MF -C build/ .
-    - name: Crear paquete DEB
+    - name: Crear .deb
       run: jpackage --input build/ --name HelloWorldFx --main-jar HelloWorldFx.jar --main-class dam.optativa.HelloWorldFx --type deb --module-path javafx-sdk/javafx-sdk-21.0.10/lib --add-modules javafx.controls
