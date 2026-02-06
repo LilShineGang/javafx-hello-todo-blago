@@ -2,11 +2,8 @@ name: gh_action_2_dan
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-  tags:
-    - "v*"
+    tags:
+      - "v*"
 
 jobs:
   build:
